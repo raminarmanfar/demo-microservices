@@ -1,5 +1,6 @@
 package com.armanfara.userservice.controller;
 
+import com.armanfara.userservice.VO.ResponseTemplateVO;
 import com.armanfara.userservice.entity.User;
 import com.armanfara.userservice.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -32,5 +33,11 @@ public class UserController {
     public User save(@RequestBody User user) {
         log.info("Inside save of UserController");
         return userService.save(user);
+    }
+
+    @GetMapping("/user-with-department/{id}")
+    public ResponseTemplateVO getUserWithDepartment(@PathVariable("id") Long userId) {
+        log.info("Inside getUserWithDepartment of UserController");
+        return userService.getUserWithDepartment(userId);
     }
 }
